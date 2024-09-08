@@ -19,6 +19,7 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
             const commentBlock = document.createElement('div');
             commentBlock.className = 'block';
             commentBlock.innerHTML = `
+                        <p><b>№:</b> ${comment.id}</p>
                         <p><b>Name:</b> ${comment.name}</p>
                         <p><b>Email:</b> ${comment.email}</p>
                         <p><b>Comment:</b> ${comment.body}</p>

@@ -6,12 +6,15 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
     .then(user => {
         userDetailsContainer.innerHTML = `
                 <h2>User Details</h2>
+                <p><b>Identification number</b> ${user.id}</p>
                 <p><b>Name:</b> ${user.name}</p>
+                <p><b>Username:</b> ${user.username}</p>
                 <p><b>Email:</b> ${user.email}</p>
                 <p><b>Website:</b> ${user.website}</p>
                 <p><b>Phone:</b> ${user.phone}</p>
-                <p><b>Company:</b> ${user.company.name}</p>
-                <p><b>Address:</b> ${user.address.street}, ${user.address.city}</p> 
+                <p><b>Company:</b> ${user.company.name} <br> ${user.company.catchPhrase} <br> ${user.company.bs}</p>
+                <p><b>Address:</b> ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>
+                <p><b>Geo:</b> ${user.address.geo.lat}, ${user.address.geo.lng}</p> 
                 <button id="Button">Post of current user</button>
             `;
         document.getElementById('Button').addEventListener('click', function () {
