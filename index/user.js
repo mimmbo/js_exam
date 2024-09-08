@@ -15,28 +15,31 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
                 <button id="Button">Post of current user</button>
             `;
         document.getElementById('Button').addEventListener('click', function () {
-            showUserPosts(userId);
+            ShowUserPosts(userId);
         });
     })
-
-function showUserPosts(userId) {
-    fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
-        .then(response => response.json())
-        .then(posts => {
-            const postsContainer = document.createElement('div');
-            postsContainer.classList.add('posts');
-
-            posts.forEach(post => {
-                const postBlock = document.createElement('div');
-                postBlock.classList.add('post-block');
-                postBlock.innerHTML = `
-                    <h4>${post.title}</h4>
-                    <button onclick="viewPostDetails(${post.id})">View Post Details</button>
-                `;
-                postsContainer.appendChild(postBlock);
+let postsVisible = false;
+function ShowUserPosts(userId) {
+    const postsContainer = document.getElementById('postsContainer');
+    if (postsVisible) {
+        postsContainer.innerHTML = '';
+        postsVisible = false;
+    } else {
+        fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+            .then(response => response.json())
+            .then(posts => {
+                posts.forEach(post => {
+                    const postBlock = document.createElement('div');
+                    postBlock.classList.add('post-block');
+                    postBlock.innerHTML = `
+                        <h4>${post.title}</h4>
+                        <button onclick="viewPostDetails(${post.id})">View Post Details</button>
+                    `;
+                    postsContainer.appendChild(postBlock);
+                });
+                postsVisible = true;
             });
-            userDetailsContainer.appendChild(postsContainer);
-        });
+    }
 }
 function viewPostDetails(postId) {
     window.location.href = `post-details.html?postId=${postId}`;

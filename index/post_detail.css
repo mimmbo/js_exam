@@ -3,27 +3,28 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-h3{
+
+h3 {
     margin-left: 20px;
 }
 
 .details {
-    border: 2px solid black;
     padding: 20px;
     margin: 20px auto;
     width: 90%;
-    background-color: deepskyblue;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: lightblue;
 }
+
 .container {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
 }
+
 .block {
-    border: 2px solid black;
+    width: calc(20% - 20px);
+    background-color: lightblue;
     padding: 10px;
-    margin: 10px;
-    width: 22%;
-    background-color: deepskyblue;
+    box-sizing: border-box;
 }

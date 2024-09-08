@@ -3,6 +3,10 @@ body {
     padding: 0;
     box-sizing: border-box;
     text-align: center;
+    background: url("https://images.pexels.com/photos/1205301/pexels-photo-1205301.jpeg?cs=srgb&dl=pexels-felixmittermeier-1205301.jpg&fm=jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .block {
     display: flex;
@@ -13,12 +17,20 @@ body {
     padding: 10px;
     margin: 10px 0 0 100px;
     width: 35%;
-    background-color:lightblue;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color:lightgray;
     font-family: Calibri,serif;
     display: flex;
     align-items: center;
     flex-direction: column;
+    opacity: 70%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+.users:hover{
+    opacity: 90%;
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+
 }
 .users button {
 
@@ -30,7 +42,10 @@ body {
     padding: 10px;
     text-decoration: none;
     border-radius: 15px;
+    border: 0;
+    cursor: pointer;
 }
 h1{
     margin-right: 50px;
+    color: #dddddd;
 }
